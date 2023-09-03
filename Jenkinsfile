@@ -24,6 +24,13 @@ stages {
          sh 'docker build -t cbabu85/insure-me-app:1.0 .'
              }
          }
+     stage('Docker Image Push') {
+       steps {
+         withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]) {
+         sh 'docker login -u cbabu85 -p ${dockerHubPwd}'
+       }
+         sh 'docker push cbabu85/insure-me-app:1.0
    }    
-       
+     }    
+}
 }
