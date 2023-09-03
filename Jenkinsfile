@@ -9,5 +9,10 @@ stages {
          git 'https://github.com/devopscbabu/24-Apr-Insureme.git'
              }
         }
-}
+     stage('Build Package') {
+       steps {
+         sh 'mvn package'
+       }
+     }
+  }
 }
