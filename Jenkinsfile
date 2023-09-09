@@ -32,5 +32,10 @@ stages {
          sh 'docker push cbabu85/insure-me-app:1.0'
    }    
      }    
-}
+    stage('Application Deploy-container') {
+          steps {
+            ansiblePlaybook credentialsId: 'SSH-Key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'prod.inv', playbook: 'deploy.yml'
+                }
+          }
+    }
 }
