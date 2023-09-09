@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: Install Docker
+    yum: name=docker state=present
+  - name: Start Docker Service
+    command: sudo systemctl start docker
+  - name: Deploy you application and run as container
+    command: docker run -itd -p 8080:8080 cbabu85/insure-me-app:1.0
