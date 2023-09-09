@@ -26,8 +26,8 @@ stages {
          }
      stage('Docker Image Push') {
        steps {
-         withCredentials([string(credentialsId: 'Docker3-Hub', variable: 'Hub2-Docker')]) {
-         sh 'docker login -u cbabu85 -p ${Hub2-Docker}'
+         withCredentials([usernamePassword(credentialsId: 'docker1-hub', passwordVariable: 'docker_password', usernameVariable: 'docker_user')]) {
+         sh 'docker login -u ${docker_user} -p ${docker_password}'
        }
          sh 'docker push cbabu85/insure-me-app:1.0'
    }    
