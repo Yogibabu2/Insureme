@@ -9,7 +9,7 @@ stages {
          git 'https://github.com/devopscbabu/24-Apr-Insureme.git'
              }
         }
-     stage('Build Package') {
+/*     stage('Build Package') {
        steps {
          sh 'mvn package'
        }
@@ -31,7 +31,7 @@ stages {
        }
          sh 'docker push cbabu85/insure-me-app:1.0'
    }    
-     }    
+     }    */
     stage('Application Deploy-container') {
           steps {
             ansiblePlaybook become: true, credentialsId: 'SSH-Key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'prod.inv', playbook: 'deploy.yml'
