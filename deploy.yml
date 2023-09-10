@@ -5,8 +5,13 @@
   - name: Install Docker
     apt: name=docker.io state=present
   - name: Start Docker Service
-    command: sudo systemctl start docker
+    command: sudo systemctl start docker state= restarted enabled =yes
   - name: Remove Docker container
     command: docker rm $(docker ps -aq)
+  - name: docker run user
+    shell: usermod -a -G docker ubuntu
+  - name: check the docker version
+    command: "docker version"
+    register: docversion
   - name: Deploy you application and run as container
     command: docker run -d -p 8080:8080 cbabu85/insure-me-app:1.0
