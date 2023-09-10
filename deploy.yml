@@ -5,7 +5,7 @@
   - name: Install Docker
     apt: name=docker.io state=present
   - name: Start Docker Service
-    command: sudo systemctl start docker state= restarted enabled =yes
+    command: sudo systemctl start docker
   - name: Remove Docker container
     command: docker rm $(docker ps -aq)
   - name: docker run user
