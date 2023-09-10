@@ -14,4 +14,4 @@
     command: "docker version"
     register: docversion
   - name: Deploy you application and run as container
-    command: docker run -d -p 8080:8080 cbabu85/insure-me-app:1.0
+    command: docker run -itd -p 8080:8080 cbabu85/insure-me-app:2.0
