@@ -21,7 +21,7 @@ stages {
          }
      stage('Create Docker image of App') {
        steps {
-         sh 'docker build -t cbabu85/insure-me-app:2.0 .'
+         sh 'docker build -t cbabu85/insure-me-app:3.0 .'
              }
          }
      stage('Docker Image Push') {
@@ -29,7 +29,7 @@ stages {
          withCredentials([usernamePassword(credentialsId: 'docker-hub-2', passwordVariable: 'docker_password', usernameVariable: 'docker_login')]) {
          sh 'docker login -u ${docker_login} -p ${docker_password}'
        }
-         sh 'docker push cbabu85/insure-me-app:2.0'
+         sh 'docker push cbabu85/insure-me-app:3.0'
    }    
      }   
     stage('Application Deploy-container') {
