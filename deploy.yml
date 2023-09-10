@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: myserver
   become: true
   tasks:
   - name: Install Docker
