@@ -21,7 +21,7 @@ stages {
          }
      stage('Create Docker image of App') {
        steps {
-         sh 'docker build -t cbabu85/insure-me-app:1.0 .'
+         sh 'docker build -t cbabu85/insure-me-app:2.0 .'
              }
          }
      stage('Docker Image Push') {
