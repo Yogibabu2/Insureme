@@ -1,0 +1,21 @@
+1. Create EC2 t2.Medium Instance (ubuntu)
+2. Install java, maven, jenkins, ansible, docker
+3. export the java and maven path in .bashrc
+4. Login to jenkins, dont install any plugin at start 
+5. Change the jenkins password
+6. Install required plugins in jenkins-maven integration, git, docker, ansible
+7. Create a jenkins pipeline job using scm
+8. add jenkins user to docker group using usermod -aG docker jenkins then restart the docker service and jenkins 
+a. write the dockerfile with base image as java-jdk-11
+9. write the jenkinsfile for stages called checkout, mvn package, build image
+10. create credentials for docker login using the username and password and bind the variable co-joined 
+11. update the jenkinsfile with docker push stage including docker login
+12. Add the ansible path in jenkins tools section 
+13. Launch a new ubuntu machine 
+14. Do the ssh connection from jenkins to new ubuntu machine
+15. write the playbook for deployment
+16. update the inventory list in host file
+17. add jenkins user to sudoers file jenkins ALL=(ALL) ALL
+18. Run the jenkins file after the ansibleplay book stage is added . 
+19. check the application
+20. create the webhooks for auto deployment.
