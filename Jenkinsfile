@@ -34,8 +34,8 @@ stages {
      }    */
     stage('Application Deploy-container') {
           steps {
-            sh 'chmod -R 777 /var/lib/jenkins/workspace'
-            ansiblePlaybook becomeUser: 'jenkins', credentialsId: 'SSH-Key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'prod.inv', playbook: 'deploy.yml'
+            
+            ansiblePlaybook credentialsId: 'SSH-Key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'prod.inv', playbook: 'deploy.yml'
                 }
           }
     }
