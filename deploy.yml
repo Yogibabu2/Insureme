@@ -3,7 +3,7 @@
   become: true
   tasks:
   - name: Install Docker
-    yum: name=docker state=present
+    apt: name=docker.io state=present
   - name: Start Docker Service
     command: sudo systemctl start docker
   - name: Deploy you application and run as container
