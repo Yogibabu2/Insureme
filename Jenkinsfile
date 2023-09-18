@@ -9,5 +9,10 @@ stages {
          git 'https://github.com/Yogibabu2/Insureme.git'
              }
         }
+  stage('Build Package') {
+       steps {
+         sh 'mvn package'
+       }
+     }
 }
 }
