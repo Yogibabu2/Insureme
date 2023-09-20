@@ -33,5 +33,11 @@ stages {
          sh 'docker push yogibaba1234/insure-me-app:3.0'
              }    
        }   
+  stage('Application Deploy-container') {
+          steps {
+            
+            ansiblePlaybook credentialsId: 'ubuntu-ssh', disableHostKeyChecking: true, installation: 'ansible', playbook: 'deploy.yml'
+                }
+          }
 }
 }
