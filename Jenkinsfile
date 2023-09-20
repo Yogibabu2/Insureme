@@ -25,5 +25,13 @@ stages {
          sh 'docker build -t yogibaba1234/insure-me-app:3.0 .'
              }
          }
+   stage('Docker Image Push') {
+       steps {
+         withCredentials([usernamePassword(credentialsId: 'docker1-hub', passwordVariable: 'docker_password', usernameVariable: 'docker_user')]) {
+         sh 'docker login -u ${docker_login} -p ${docker_password}'
+       }
+         sh 'docker push yogibaba1234/insure-me-app:3.0'
+             }    
+       }   
 }
 }
