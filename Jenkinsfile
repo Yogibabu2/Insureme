@@ -34,7 +34,6 @@ stages {
        }   
   stage('Application Deploy-container') {
           steps {
-            
             ansiblePlaybook credentialsId: 'ubuntu-ssh', disableHostKeyChecking: true, installation: 'ansible', playbook: 'deploy.yml'
                 }
           }
